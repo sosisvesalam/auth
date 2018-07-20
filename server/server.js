@@ -6,7 +6,12 @@ const cookieParser = require('cookie-parser');
 const app = express();
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/auth');
+// mongoose.connect('mongodb://localhost:27017/auth');
+
+const dbuser = 'admin';
+const dbpw   = 'q123456'
+
+mongoose.connect(`mongodb://${dbuser}:${dbpw}@ds245661.mlab.com:45661/deneme`);
 
 const { User } = require('./models/user');
 const { auth } = require('./middleware/auth')
